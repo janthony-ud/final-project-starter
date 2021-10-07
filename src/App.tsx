@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App(): JSX.Element {
+    const [score, setScore] = useState<number>(0);
     return (
         <div className="App">
             <header className="App-header">
@@ -10,14 +11,10 @@ function App(): JSX.Element {
                 <p>
           Edit <code>src/App.tsx</code> and save to reload.
                 </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-          Learn React
-                </a>
+                {score}
+                <button onClick= {()=> setScore(score+1) }>Increase</button>
+                <button onClick= {()=> setScore(score-1) }>Decrease</button>
+                <button onClick= {()=> setScore(0) }>Reset</button>
             </header>
         </div>
     );
